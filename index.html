@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yes or No</title>
+
+
+<!-- React + ReactDOM (CDN) -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<style>
+body {
+margin: 0;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+background: #0f0f14;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+text-align: center;
+}
+
+
+.container {
+max-width: 480px;
+width: 100%;
+padding: 24px;
+}
+
+
+img {
+max-width: 100%;
+border-radius: 16px;
+box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+
+.buttons {
+margin-top: 24px;
+display: flex;
+gap: 16px;
+justify-content: center;
+align-items: center;
+}
+
+
+button {
+border: none;
+border-radius: 999px;
+padding: 14px 28px;
+font-size: 16px;
+cursor: pointer;
+transition: all 0.25s ease;
+}
+
+
+.yes {
+background: #22c55e;
+color: #052e16;
+}
+
+
+.no {
+background: #ef4444;
+color: #450a0a;
+}
+
+
+.text {
+margin-top: 20px;
+font-size: 20px;
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+
+<script type="text/babel">
+function App() {
+const [noClicks, setNoClicks] = React.useState(0);
+const [stage, setStage] = React.useState(1);
+
+
+const noTexts = [
+"No",
+"Are you sure?",
+"Think again",
+"Really sure?",
+"Last chance",
+"Okay wow"
+];
+
+
+if (stage === 2) {
+return (
+<div className="container">
+<img src="SECOND_GIF_URL_HERE" alt="Second gif" />
+<audio src="SECOND_AUDIO_URL_HERE" autoPlay />
+<div className="text">Put your final message here 💖</div>
+</div>
+);
+}
+</html>

@@ -74,7 +74,7 @@
   <script type="text/babel">
     function App() {
       const [noClicks, setNoClicks] = React.useState(0);
-      const [stage, setStage] = React.useState(1);
+      const [stage, setStage] = React.useState(0);
 
       const noTexts = [
         "Nel",
@@ -84,6 +84,20 @@
         "Por favoooooor",
         "Ultima oportunidad"
       ];
+
+      if (stage === 0){
+        return (
+          <div className="container">
+            <div className="text"> Tengo una pregunta para ti</div>
+            <button
+              className="Yes"
+              onClick={() => setStage(1)}
+            >
+              A ver pues
+            </button>  
+          </div>
+          );
+      }
 
       if (stage === 2) {
         return (

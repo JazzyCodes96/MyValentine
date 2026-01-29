@@ -8,7 +8,6 @@
   <!-- React + ReactDOM (CDN) -->
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <style>
     body {
@@ -71,58 +70,81 @@
 <body>
   <div id="root"></div>
 
-  <script type="text/babel">
-    function App() {
-      const [noClicks, setNoClicks] = React.useState(0);
-      const [stage, setStage] = React.useState(1);
+  <script>
+  const { useState } = React;
 
-      const noTexts = [
-        "No",
-        "Are you sure?",
-        "Think again",
-        "Really sure?",
-        "Last chance",
-        "Okay wow"
-      ];
+  function App() {
+    const [noClicks, setNoClicks] = useState(0);
+    const [stage, setStage] = useState(1);
 
-      if (stage === 2) {
-        return (
-          <div className="container">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWQ1dTJsbGxhNDB5czZoM2UwaG1heHIzNTBtb3dveGdocXM5c2xyMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8QbwUh40Hl96yMgvOx/giphy.gif" alt="Second gif" />
-            <audio src="https://soundcloud.com/flautistacacia/careless-whisper-flute-cover?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" autoPlay />
-            <div className="text">Put your final message here 💖</div>
-          </div>
-        );
-      }
+    const noTexts = [
+      "No",
+      "Are you sure?",
+      "Think again",
+      "Really sure?",
+      "Last chance",
+      "Okay wow"
+    ];
 
-      return (
-        <div className="container">
-          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWQ1dTJsbGxhNDB5czZoM2UwaG1heHIzNTBtb3dveGdocXM5c2xyMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8QbwUh40Hl96yMgvOx/giphy.gif" alt="First gif" />
-          <audio src="https://soundcloud.com/flautistacacia/careless-whisper-flute-cover?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" autoPlay loop />
-
-          <div className="buttons">
-            <button
-              className="yes"
-              style={{ transform: `scale(${1 + noClicks * 0.15})` }}
-              onClick={() => setStage(2)}
-            >
-              Yes
-            </button>
-
-            <button
-              className="no"
-              style={{ transform: `scale(${Math.max(0.4, 1 - noClicks * 0.15)})` }}
-              onClick={() => setNoClicks(noClicks + 1)}
-            >
-              {noTexts[Math.min(noClicks, noTexts.length - 1)]}
-            </button>
-          </div>
-        </div>
+    if (stage === 2) {
+      return React.createElement(
+        "div",
+        { className: "container" },
+        React.createElement("img", {
+          src: "SECOND_GIF_URL_HERE",
+          alt: "Second gif"
+        }),
+        React.createElement("audio", {
+          src: "SECOND_AUDIO_URL_HERE",
+          autoPlay: true
+        }),
+        React.createElement(
+          "div",
+          { className: "text" },
+          "Put your final message here 💖"
+        )
       );
     }
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-  </script>
+    return React.createElement(
+      "div",
+      { className: "container" },
+      React.createElement("img", {
+        src: "FIRST_GIF_URL_HERE",
+        alt: "First gif"
+      }),
+      React.createElement("audio", {
+        src: "FIRST_AUDIO_URL_HERE",
+        autoPlay: true,
+        loop: true
+      }),
+      React.createElement(
+        "div",
+        { className: "buttons" },
+        React.createElement(
+          "button",
+          {
+            className: "yes",
+            style: { transform: `scale(${1 + noClicks * 0.15})` },
+            onClick: () => setStage(2)
+          },
+          "Yes"
+        ),
+        React.createElement(
+          "button",
+          {
+            className: "no",
+            style: { transform: `scale(${Math.max(0.4, 1 - noClicks * 0.15)})` },
+            onClick: () => setNoClicks(noClicks + 1)
+          },
+          noTexts[Math.min(noClicks, noTexts.length - 1)]
+        )
+      )
+    );
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(React.createElement(App));
+</script>
 </body>
 </html>

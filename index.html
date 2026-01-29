@@ -77,12 +77,12 @@
       const [stage, setStage] = React.useState(1);
 
       const noTexts = [
-        "No",
-        "Are you sure?",
-        "Think again",
-        "Really sure?",
-        "Last chance",
-        "Okay wow"
+        "Nel",
+        "Segurita?",
+        "Andaleeeeee",
+        "Te la vas a pasar chido?",
+        "Por favoooooor",
+        "Ultima oportunidad"
       ];
 
       if (stage === 2) {
@@ -97,21 +97,21 @@
 
       return (
         <div className="container">
-          <div className="text">Quieres ser mi san valentin 💖</div>
           <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWQ1dTJsbGxhNDB5czZoM2UwaG1heHIzNTBtb3dveGdocXM5c2xyMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8QbwUh40Hl96yMgvOx/giphy.gif" alt="First gif" />
           <audio src="https://soundcloud.com/flautistacacia/careless-whisper-flute-cover?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" autoPlay loop />
-
+          <div className="text">Quieres ser mi san valentin 💖</div>
+          
           <div className="buttons">
             <button
-              className="Chi"
+              className="Yes"
               style={{ transform: `scale(${1 + noClicks * 0.15})` }}
               onClick={() => setStage(2)}
             >
-              Yes
+              Si
             </button>
 
             <button
-              className="Nel"
+              className="No"
               style={{ transform: `scale(${Math.max(0.4, 1 - noClicks * 0.15)})` }}
               onClick={() => setNoClicks(noClicks + 1)}
             >
